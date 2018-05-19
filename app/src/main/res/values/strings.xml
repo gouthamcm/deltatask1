@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">delta task</string>
+    <string name="soul_stone">soul stone</string>
+    <string name="mind_stone">mind stone</string>
+    <string name="power_stone">power stone</string>
+    <string name="time_stone">time stone</string>
+    <string name="reality_stone">reality stone</string>
+    <string name="space_stone">space stone</string>
+    <string name="hello_thanos">HELLO THANOS</string>
+    <string name="reset">RESET</string>
+    <string name="congratulations_thanos_you_have_found_all_the_infinty_stones">CONGRATULATIONS THANOS, YOU HAVE FOUND ALL THE INFINTY STONES</string>
+    <string name="click_to_exit">CLICK TO EXIT</string>
+</resources>

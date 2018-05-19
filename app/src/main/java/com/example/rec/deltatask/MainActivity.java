@@ -2,6 +2,8 @@ package com.example.rec.deltatask;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int d=0;
     private int e=0;
     private int f=0;
+   private int ran=0;
     private String s;
     ArrayList<String> arraylist ;
     ArrayAdapter<String> adapter ;
@@ -32,7 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
 
         mytext= findViewById(R.id.textView2);
         list=findViewById(R.id.listview);
@@ -40,11 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         Button button1 = findViewById(R.id.buttonpower);
-        Button button2 = findViewById(R.id.buttonspace);
-        Button button3 = findViewById(R.id.buttonreality);
-        Button button4 = findViewById(R.id.buttontime);
-        Button button5 = findViewById(R.id.buttonsoul);
-        Button button6 = findViewById(R.id.buttonmind);
+
         Button button7=findViewById(R.id.button7);
 
         arraylist =new ArrayList<String>();
@@ -53,11 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
-        button3.setOnClickListener(this);
-        button4.setOnClickListener(this);
-        button5.setOnClickListener(this);
-        button6.setOnClickListener(this);
+
         button7.setOnClickListener(this);
 
     }
@@ -68,72 +66,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.buttonpower:
 
-                s="power stone";
-                arraylist.add(s);
-                adapter.notifyDataSetChanged();
-                mylayout.setBackgroundColor(Color.MAGENTA);
-                mytext.setText("Congratulation, you just found POWER STONE");
-                a++;
-                bac();
-
-                break;
-            case R.id.buttonspace:
-
-                s="space stone";
-                arraylist.add(s);
-                adapter.notifyDataSetChanged();
-                mylayout.setBackgroundColor(Color.BLUE);
-                b++;
-                mytext.setText("Congratulation, you just found SPACE STONE");
-                bac();
-
-                break;
-            case R.id.buttonreality:
-
-                s="reality stone";
-                arraylist.add(s);
-                adapter.notifyDataSetChanged();
-                c++;
-                mylayout.setBackgroundColor(Color.RED);
-                mytext.setText("Congratulation, you just found REALITY STONE");
-                bac();
-
-                break;
-            case R.id.buttontime:
-
-                s="time stone";
-                arraylist.add(s);
-                adapter.notifyDataSetChanged();
-                d++;
-                mylayout.setBackgroundColor(Color.GREEN);
-                mytext.setText("Congratulation, you just found TIME STONE");
-                bac();
-
-                break;
-            case R.id.buttonsoul:
-
-                s="soul stone";
-                arraylist.add(s);
-                adapter.notifyDataSetChanged();
-                e++;
-                mylayout.setBackgroundColor(Color.rgb(255,165,0));
-                mytext.setText("Congratulation, you just found SOUL STONE");
-                bac();
+                Random r=new Random();
+                ran=r.nextInt(6);
+                abc(ran);
 
                 break;
 
-                case R.id.buttonmind:
-
-                    s="mind stone";
-                    arraylist.add(s);
-                    adapter.notifyDataSetChanged();
-                    f++;
-                    bac();
-                    mylayout.setBackgroundColor(Color.YELLOW);
-
-                    mytext.setText("Congratulation, you just found MIND STONE");
-
-                break;
             case R.id.button7:
                 arraylist.clear();
                 adapter.notifyDataSetChanged();
@@ -144,12 +82,85 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 }
+@SuppressLint("SetTextI18n")
+public void abc(int x)
+{
+   switch(x) {
+       case 0:
+           a++;if(a==1) {
+           s = "power stone";
+           arraylist.add(s);
+           adapter.notifyDataSetChanged();
+           mylayout.setBackgroundColor(Color.MAGENTA);
+           mytext.setText("Congratulation, you just found POWER STONE");
+       }else{
+           mytext.setText("SORRY,YOU MISSED THE STONE BY AN INCH");
+       }
+
+           bac();
+           break;
+       case 1:
+          b++;if(b==1) {
+           s = "space stone";
+           arraylist.add(s);
+           adapter.notifyDataSetChanged();
+           mylayout.setBackgroundColor(Color.BLUE);
+           mytext.setText("Congratulation, you just found SPACE STONE");
+       }else{
+           mytext.setText("SORRY,YOU MISSED THE STONE BY AN INCH");
+       }
+           bac();break;
+       case 2:
+           c++;if(c==1) {
+           s = "time stone";
+           arraylist.add(s);
+           adapter.notifyDataSetChanged();
+           mylayout.setBackgroundColor(Color.GREEN);
+           mytext.setText("Congratulation, you just found TIME STONE");
+       }else{
+           mytext.setText("SORRY,YOU MISSED THE STONE BY AN INCH");
+       }
+           bac();break;
+       case 3:
+           d++;if(d==1) {
+           s = "reality stone";
+           arraylist.add(s);
+           adapter.notifyDataSetChanged();
+           mylayout.setBackgroundColor(Color.RED);
+           mytext.setText("Congratulation, you just found REALITY STONE");
+       }else{
+           mytext.setText("SORRY,YOU MISSED THE STONE BY AN INCH");
+       }
+           bac();break;
+       case 4:
+          e++;if(e==1) {
+           s = "soul stone";
+           arraylist.add(s);
+           adapter.notifyDataSetChanged();
+           mylayout.setBackgroundColor(Color.rgb(255, 165, 0));
+           mytext.setText("Congratulation, you just found SOUL STONE");
+       }else{
+           mytext.setText("SORRY,YOU MISSED THE STONE BY AN INCH");
+       }
+           bac();break;
+       case 5:
+           f++;if(f==1) {
+           s = "mind stone";
+           arraylist.add(s);
+           adapter.notifyDataSetChanged();
+           mylayout.setBackgroundColor(Color.YELLOW);
+           mytext.setText("Congratulation, you just found MIND STONE");
+       }else{
+           mytext.setText("SORRY,YOU MISSED THE STONE BY AN INCH");
+       }
+           bac();break;
+   }
+}
 
      public void bac(){
-        if(a!=0&&b!=0&&c!=0&&d!=0&&e!=0&&f!=0)
-        {
-            openActivity2();
-        }
+          if(a!=0&&b!=0&&c!=0&&d!=0&&e!=0&&f!=0){
+            openActivity2();}
+
      }
      public void openActivity2(){
         Intent i=new Intent(this,Main2Activity.class);

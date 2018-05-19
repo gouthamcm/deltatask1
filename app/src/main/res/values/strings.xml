@@ -10,4 +10,6 @@
     <string name="reset">RESET</string>
     <string name="congratulations_thanos_you_have_found_all_the_infinty_stones">CONGRATULATIONS THANOS, YOU HAVE FOUND ALL THE INFINTY STONES</string>
     <string name="click_to_exit">CLICK TO EXIT</string>
+    <string name="click_to_obtain_a_string_mind_stone">click to obtain a @string/mind_stone</string>
+    <string name="click_to_obtain_an_infinity_stone">click to obtain an infinity stone</string>
 </resources>
